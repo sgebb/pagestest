@@ -1,6 +1,6 @@
 ---
 title: Volleyball
-parent: subdub
+layout: default
 nav_order: 1
 ---
 
