@@ -1,6 +1,7 @@
 ---
 title: Volleyball
 layout: default
+parent: Sport
 nav_order: 1
 ---
 
