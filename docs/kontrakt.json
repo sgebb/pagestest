@@ -1,0 +1,2177 @@
+{
+  "x-generator": "NSwag v14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "UlfKonsument",
+    "description": "Ekstern tjeneste for person- og saksdata",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://ulfkonsumentapi-ulfkonsument-utv03.apps.test.cp.udi.no"
+    }
+  ],
+  "paths": {
+    "/personer/{dufnr}": {
+      "get": {
+        "tags": [
+          "Personer"
+        ],
+        "operationId": "Personer_GetPerson",
+        "parameters": [
+          {
+            "name": "dufnr",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "requestedFields",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Person"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          },
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/personer/bulkoppslag": {
+      "post": {
+        "tags": [
+          "Personer"
+        ],
+        "operationId": "Personer_GetPersoner",
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetPersonerRequestBody"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPersonerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/personer/endringer": {
+      "get": {
+        "tags": [
+          "Personer"
+        ],
+        "operationId": "Personer_GetPersonEndringer",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonEndringerDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/ping/ping": {
+      "get": {
+        "tags": [
+          "Ping"
+        ],
+        "operationId": "Ping_Ping",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ping/deepping": {
+      "get": {
+        "tags": [
+          "Ping"
+        ],
+        "operationId": "Ping_DeepPing",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/saker/{dufnr}": {
+      "get": {
+        "tags": [
+          "Saker"
+        ],
+        "operationId": "Saker_GetSakList",
+        "parameters": [
+          {
+            "name": "dufnr",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "requestedFields",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SakList"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          },
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/saker/endringer": {
+      "get": {
+        "tags": [
+          "Saker"
+        ],
+        "operationId": "Saker_GetSakEndringer",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SakEndringerDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Person": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "personBasis": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PersonBasis"
+              }
+            ]
+          },
+          "kjonn": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kjonn"
+              }
+            ]
+          },
+          "fodselsdato": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Fodselsdato"
+              }
+            ]
+          },
+          "dodsfall": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Dodsfall"
+              }
+            ]
+          },
+          "fodested": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Fodested"
+              }
+            ]
+          },
+          "postadresse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Postadresse"
+              }
+            ]
+          },
+          "oppholdsadresse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Oppholdsadresse"
+              }
+            ]
+          },
+          "sivilstand": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Sivilstand"
+              }
+            ]
+          },
+          "navn": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Navn"
+              }
+            ]
+          },
+          "kontaktsprak": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kontaktspraak"
+              }
+            ]
+          },
+          "skjerming": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Skjerming"
+              }
+            ]
+          },
+          "statsborgerskap": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Statsborgerskap"
+            }
+          },
+          "identifikasjonsdokumenter": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Identifikasjonsdokument"
+            }
+          },
+          "elektroniskeKontaktinformasjoner": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ElektroniskKontaktinformasjon"
+            }
+          },
+          "foreldreansvarlige": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Foreldreansvarlig"
+            }
+          },
+          "familierelasjoner": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Familierelasjon"
+            }
+          },
+          "aliaser": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Alias"
+            }
+          },
+          "dobbeltforinger": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Dobbeltforing"
+            }
+          },
+          "spraak": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Spraak"
+            }
+          },
+          "statusIFolkeregisteret": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/StatusIFolkeregisteret"
+              }
+            ]
+          }
+        }
+      },
+      "PersonBasis": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fregId": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/FregId"
+              }
+            ]
+          },
+          "dufnr": {
+            "type": "string",
+            "nullable": true
+          },
+          "erAlias": {
+            "type": "boolean"
+          },
+          "erDobbeltfoering": {
+            "type": "boolean"
+          },
+          "erSkjermet": {
+            "type": "boolean"
+          }
+        }
+      },
+      "FregId": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "Metadata": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "datakilde": {
+            "$ref": "#/components/schemas/Kodeverk"
+          },
+          "opprettetTidspunkt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endretTidspunkt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Kodeverk": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kode": {
+            "type": "string",
+            "nullable": true
+          },
+          "visningsnavn": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "Kjonn": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "kodeverkVerdi": {
+            "$ref": "#/components/schemas/Kodeverk"
+          }
+        }
+      },
+      "Fodselsdato": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "dato": {
+            "type": "string",
+            "format": "date"
+          },
+          "soliditetKodeverkVerdi": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          }
+        }
+      },
+      "Dodsfall": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "dodsdato": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "Fodested": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "landKodeverkVerdi": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "fodestedString": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "Postadresse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "adressegraderingKodeverkVerdi": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "postboksadresse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Postboksadresse"
+              }
+            ]
+          },
+          "vegadresse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/VegAdresseForPost"
+              }
+            ]
+          }
+        }
+      },
+      "Postboksadresse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "postboks": {
+            "type": "string"
+          },
+          "postboksEier": {
+            "type": "string",
+            "nullable": true
+          },
+          "poststed": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          }
+        }
+      },
+      "VegAdresseForPost": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "adressenavn": {
+            "type": "string"
+          },
+          "adressenummer": {
+            "type": "string"
+          },
+          "adressetilleggsnavn": {
+            "type": "string"
+          },
+          "adressekode": {
+            "type": "string",
+            "nullable": true
+          },
+          "bruksenhetsnummer": {
+            "type": "string",
+            "nullable": true
+          },
+          "coAdressenavn": {
+            "type": "string",
+            "nullable": true
+          },
+          "poststed": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          }
+        }
+      },
+      "Oppholdsadresse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "adressegraderingKodeverkVerdi": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "ukjentAdresse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UkjentAdresse"
+              }
+            ]
+          },
+          "vegAdresse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/VegAdresse"
+              }
+            ]
+          },
+          "fraTidspunkt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "UkjentAdresse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ukjentAdressetypeKode": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "VegAdresse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "adressenavn": {
+            "type": "string"
+          },
+          "adressenummer": {
+            "type": "string"
+          },
+          "adressetilleggsnavn": {
+            "type": "string"
+          },
+          "adressekode": {
+            "type": "string",
+            "nullable": true
+          },
+          "bruksenhetsnummer": {
+            "type": "string",
+            "nullable": true
+          },
+          "coAdressenavn": {
+            "type": "string",
+            "nullable": true
+          },
+          "kommune": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "poststed": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "bruksenhetstype": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          }
+        }
+      },
+      "Sivilstand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "sivilstandKodeverkVerdi": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "sivilstandDato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "vigselslandKodeverkVerdi": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "annenSivilstandBeskrivelse": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "Navn": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "fornavn": {
+            "type": "string"
+          },
+          "mellomnavn": {
+            "type": "string",
+            "nullable": true
+          },
+          "etternavn": {
+            "type": "string"
+          },
+          "etternavnVedFodsel": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "Kontaktspraak": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "kodeverkVerdi": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          }
+        }
+      },
+      "Skjerming": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "skjermingsansvarlig": {
+            "type": "string"
+          },
+          "skjermingsgrunn": {
+            "$ref": "#/components/schemas/Kodeverk"
+          },
+          "avskjermingsgrunn": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "skjermingsetat": {
+            "$ref": "#/components/schemas/Kodeverk"
+          }
+        }
+      },
+      "Statsborgerskap": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "landKodeverkVerdi": {
+            "$ref": "#/components/schemas/Kodeverk"
+          },
+          "haddeVedFodsel": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "erForetrukket": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ervervsdato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "opphorsdato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        }
+      },
+      "Identifikasjonsdokument": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "identifikasjonsdokumentnummer": {
+            "type": "string",
+            "nullable": true
+          },
+          "erForetrukket": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "gyldigFra": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "gyldigTil": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "identifikasjonsdokumenttype": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "identifikasjonsdokumentRiktighetsgrad": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "utstederland": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          }
+        }
+      },
+      "ElektroniskKontaktinformasjon": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "kanal": {
+            "$ref": "#/components/schemas/Kodeverk"
+          },
+          "verdi": {
+            "type": "string"
+          }
+        }
+      },
+      "Foreldreansvarlig": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "ansvarligType": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "ansvar": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "relatertPerson": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/RelatertPerson"
+              }
+            ]
+          }
+        }
+      },
+      "RelatertPerson": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "identifikator": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Identifikator"
+              }
+            ]
+          },
+          "personUtenIdentifikator": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PersonUtenIdentifikator"
+              }
+            ]
+          }
+        }
+      },
+      "Identifikator": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dufnr": {
+            "type": "string",
+            "nullable": true
+          },
+          "fregId": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PersonUtenIdentifikator": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fornavn": {
+            "type": "string",
+            "nullable": true
+          },
+          "mellomnavn": {
+            "type": "string",
+            "nullable": true
+          },
+          "etternavn": {
+            "type": "string",
+            "nullable": true
+          },
+          "kjonn": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "statsborgerskap": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "fodselsdato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "epostadresse": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobiltelefonnummer": {
+            "type": "string",
+            "nullable": true
+          },
+          "fasttelefonnummer": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "Familierelasjon": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "minPersonrolleKodeverkVerdi": {
+            "$ref": "#/components/schemas/Kodeverk"
+          },
+          "relatertPersonIdentifikator": {
+            "$ref": "#/components/schemas/Identifikator"
+          },
+          "relatertPersonrolleKodeverkVerdi": {
+            "$ref": "#/components/schemas/Kodeverk"
+          },
+          "opphort": {
+            "type": "boolean",
+            "nullable": true
+          }
+        }
+      },
+      "Alias": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "aliasReferansetypeKodeverkVerdi": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "relatertPerson": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/RelatertPerson"
+              }
+            ]
+          }
+        }
+      },
+      "Dobbeltforing": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "dufnr": {
+            "type": "string"
+          }
+        }
+      },
+      "Spraak": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "datakilde": {
+            "$ref": "#/components/schemas/Kodeverk"
+          },
+          "spraakKode": {
+            "$ref": "#/components/schemas/Kodeverk"
+          },
+          "erForetrukket": {
+            "type": "boolean"
+          },
+          "leser": {
+            "type": "boolean"
+          },
+          "taler": {
+            "type": "boolean"
+          },
+          "skriver": {
+            "type": "boolean"
+          }
+        }
+      },
+      "StatusIFolkeregisteret": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "additionalProperties": {
+          "nullable": true
+        },
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetPersonerResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "personer": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Person"
+            }
+          }
+        }
+      },
+      "GetPersonerRequestBody": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dufnrList": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "requestedFields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PersonEndringerDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "personEndringer": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PersonEndring"
+            }
+          }
+        }
+      },
+      "PersonEndring": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PersonEndringUtenIdentifikator"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "PersonEndringUtenIdentifikator": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dufnr": {
+            "type": "string"
+          },
+          "kilde": {
+            "type": "string"
+          },
+          "endringer": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Endring"
+            }
+          }
+        }
+      },
+      "Endring": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "entitet": {
+            "type": "string"
+          },
+          "tidspunkt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "SakList": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "saker": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Sak"
+            }
+          }
+        }
+      },
+      "Sak": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "sakBasis": {
+            "$ref": "#/components/schemas/SakBasis"
+          },
+          "avgjorelser": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Avgjorelse"
+            }
+          },
+          "hendelser": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Hendelse"
+            }
+          },
+          "saksrelasjoner": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Saksrelasjon"
+            }
+          },
+          "vilkar": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Vilkar"
+            }
+          },
+          "prosedyrer": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Prosedyre"
+            }
+          },
+          "merkinger": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Merking"
+            }
+          },
+          "karakteristikker": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Karakteristikk"
+            }
+          },
+          "soeknad": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Soeknad"
+              }
+            ]
+          },
+          "gjeldendeAdvokat": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Advokat"
+              }
+            ]
+          }
+        }
+      },
+      "SakBasis": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "saksnummer": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "opprettetDato": {
+            "type": "string",
+            "format": "date"
+          },
+          "beskrivelse": {
+            "type": "string",
+            "nullable": true
+          },
+          "hjemmelkode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "grunntypeKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "tillatelseKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "utfallstypeKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          }
+        }
+      },
+      "Avgjorelse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "avgjorelseDato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "hjemmelKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "avgjorelsestype": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AvgjorelseType"
+              }
+            ]
+          },
+          "erPositiv": {
+            "type": "boolean"
+          },
+          "avgjorelsesendring": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AvgjorelseEndring"
+              }
+            ]
+          },
+          "effektuering": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Effektuering"
+              }
+            ]
+          },
+          "klagefristDato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "erUtgatt": {
+            "type": "boolean"
+          },
+          "hendelse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/HendelseMinimum"
+              }
+            ]
+          },
+          "tillatelse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Tillatelse"
+              }
+            ]
+          },
+          "utfall": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Utfall"
+              }
+            ]
+          },
+          "avgjorelseId": {
+            "type": "string",
+            "nullable": true
+          },
+          "omgjortavAvgjorelseId": {
+            "type": "string",
+            "nullable": true
+          },
+          "etat": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "AvgjorelseType": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "beskrivelse": {
+            "type": "string",
+            "nullable": true
+          },
+          "utfallstypeKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "grunntypeKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "tillatelseKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          }
+        }
+      },
+      "AvgjorelseEndring": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "endringKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "endringDato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        }
+      },
+      "Effektuering": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "erPersonligFremmote": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "underrettingHendelse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Hendelse"
+              }
+            ]
+          },
+          "unndrattUnderrettingHendelse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Hendelse"
+              }
+            ]
+          },
+          "iverksettelse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Iverksettelse"
+              }
+            ]
+          },
+          "unndrattIverksettingHendelse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Hendelse"
+              }
+            ]
+          },
+          "innvilgetUtsattIverksettingHendelse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Hendelse"
+              }
+            ]
+          },
+          "avslattUtsattIverksettingHendelse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Hendelse"
+              }
+            ]
+          }
+        }
+      },
+      "Hendelse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "hendelseMinimum": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/HendelseMinimum"
+              }
+            ]
+          },
+          "hendelseOverordnetKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "fagomradeKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "notat": {
+            "type": "string",
+            "nullable": true
+          },
+          "beskrivelse": {
+            "type": "string",
+            "nullable": true
+          },
+          "ekstraHendelseTekst": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "HendelseMinimum": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "hendelseId": {
+            "type": "string",
+            "nullable": true
+          },
+          "hendelseDato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "hendelseKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          }
+        }
+      },
+      "Iverksettelse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "hendelse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Hendelse"
+              }
+            ]
+          },
+          "iverksettes": {
+            "type": "boolean"
+          },
+          "utreiseTilLandKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "ledsagetTilLandKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "utreisekostnader": {
+            "type": "string",
+            "nullable": true
+          },
+          "harUttransporteringsgjeld": {
+            "type": "boolean"
+          },
+          "fristForBegjaeringOmUtsattIverksettelseDato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "utsattIverksettelseBegjaertDato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "utsattIverksettelseTilDato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "klagefristDato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "utreisefristDato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        }
+      },
+      "Tillatelse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "tillatelsestypeKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "varighetKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "varighet": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "varighetGjelderFraMeldingTilPolitiet": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "gyldighetsperiode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApenPeriode"
+              }
+            ]
+          },
+          "erBegrensetTilArbeidssted": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "erBegrensetTilStilling": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "erGrunnlagForBosetting": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "erGrunnlagForForlengelse": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "erGrunnlagForFornyelse": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "erIkkeGrunnlagForFamilieGjenforening": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "erMidlertidig": {
+            "type": "boolean",
+            "nullable": true
+          }
+        }
+      },
+      "ApenPeriode": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fraDato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "tilDato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        }
+      },
+      "Utfall": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "utfallKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          },
+          "gjeldendePeriode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApenPeriode"
+              }
+            ]
+          },
+          "varighet": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "varighetKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          }
+        }
+      },
+      "Saksrelasjon": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "relatertPerson": {
+            "$ref": "#/components/schemas/RelatertPerson"
+          },
+          "saksrelasjonKode": {
+            "$ref": "#/components/schemas/Kodeverk"
+          }
+        }
+      },
+      "Vilkar": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "navn": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "Prosedyre": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "prosedyrekode": {
+            "$ref": "#/components/schemas/Kodeverk"
+          },
+          "erGjeldende": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "fraDato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        }
+      },
+      "Merking": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "merkingskode": {
+            "$ref": "#/components/schemas/Kodeverk"
+          },
+          "erGjeldende": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "fraDato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "aarsakKode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Kodeverk"
+              }
+            ]
+          }
+        }
+      },
+      "Karakteristikk": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "karakteristikkkode": {
+            "$ref": "#/components/schemas/Kodeverk"
+          },
+          "gyldighetsperiode": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApenPeriode"
+              }
+            ]
+          }
+        }
+      },
+      "Soeknad": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "erFornyelse": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "erFoerstegang": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "erFraRiket": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "erNettSoeknad": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "soknadMottattDato": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        }
+      },
+      "Advokat": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fornavn": {
+            "type": "string",
+            "nullable": true
+          },
+          "mellomnavn": {
+            "type": "string",
+            "nullable": true
+          },
+          "etternavn": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobiltelefonnummer": {
+            "type": "string",
+            "nullable": true
+          },
+          "epostadresse": {
+            "type": "string",
+            "nullable": true
+          },
+          "sentralbordnumre": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "organisasjonsenhetId": {
+            "type": "string",
+            "nullable": true
+          },
+          "organisasjonsenhetsInitialer": {
+            "type": "string",
+            "nullable": true
+          },
+          "unikNokkel": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SakEndringerDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "sakEndringer": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SakEndring"
+            }
+          }
+        }
+      },
+      "SakEndring": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SakEndringUtenIdentifikator"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "SakEndringUtenIdentifikator": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dufnr": {
+            "type": "string"
+          },
+          "kilde": {
+            "type": "string"
+          },
+          "endringer": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Endring2"
+            }
+          }
+        }
+      },
+      "Endring2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "saksnummer": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "entitet": {
+            "type": "string"
+          },
+          "tidspunkt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "description": "Enter your token ('Bearer ' is appended automatically)",
+        "name": "Authorization",
+        "in": "header",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearer": []
+    }
+  ]
+}
