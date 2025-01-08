@@ -2,4 +2,11 @@ title: SNORRE
 description: Min description jørgen
 theme: just-the-docs
 
+defaults:
+  - scope:
+      path: "docs" # an empty string here means all files in the project
+      type: "pages"
+    values:
+      layout: "default"
+
 url: https://sgebb.github.io/pagestest
