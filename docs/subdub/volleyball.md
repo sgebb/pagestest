@@ -1,7 +1,7 @@
 ---
 title: Volleyball
 layout: default
-parent: Sport
+parent: subdub
 nav_order: 1
 ---
 
